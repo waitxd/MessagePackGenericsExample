@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MessagePack" Version="2.0.299-rc" />
+      <PackageReference Include="MessagePack.MSBuild.Tasks" Version="2.0.299-rc" />
+      <PackageReference Include="MessagePackAnalyzer" Version="2.0.299-rc" />
+    </ItemGroup>
+
+    <Target Name="MessagePackGen" BeforeTargets="BeforeBuild">
+        <MessagePackGenerator Input="$(ProjectPath)" Output="$(ProjectDir)MessagePack" />
+    </Target>
+</Project>
